@@ -133,3 +133,88 @@ git add Vs git commit
   539  git status
   540  history
 
+-----------------
+How to version Existing file code changes?
+Can i commit selective file?
+How to commit directory?
+How to rename a file?
+How to move a file from one location to another?
+How to delete a file?
+=========================
+  544  ls
+  545  vi file3.txt
+  546  git status
+  547  git add --all
+  548  git status
+  549  git commit -m"adding changes"
+  550  ls
+  551  clear
+  552  touch file6.txt
+  553  touch file7.txt
+  554  touch file8.txt
+  555  git status
+  556  git add --all
+  557  git status
+  558  git commit -m"adding file7" file7.txt
+  559  git status
+  560  clear
+  561  git commit -m"all"
+  562  git status
+  563  mkdir src
+  564  git status
+  565  touch src/test.txt
+  566  clear
+  567  git status
+  568  git add --all
+  569  git commit -m"adding dir"
+  570  git status
+  571  clear
+  572  ls
+  573  git mv file1.txt file11.txt
+  574  git status
+  575  ls
+  576  git commit -m"renaming a file"
+  577  git status
+  578  clear
+  579  clear
+  580  ls
+  581  git mv file5.txt src/
+  582  git status
+  583  ls
+  584  git commit -m"moving a file"
+  585  clear
+  586  git status
+  587  clear
+  588  ls
+  589  git rm file8.txt
+  590  git status
+  591  ls
+  592  git commit -m"file delete"
+  593  git status
+  594  ls
+  595  clear
+  596  git log
+  597  clear
+  598  git log --oneline
+  599  git checkout 0636319
+  600  clear
+  601  ls
+  602  git checkout master
+  603  ls
+  604  history
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
