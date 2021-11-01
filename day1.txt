@@ -105,8 +105,31 @@ index 0000000..e69de29
 diff --git a/file3.txt b/file3.txt
 new file mode 100644
 index 0000000..e69de29
+=====================================================
+git add Vs git commit
 
 
-
-
+ 518  git status
+  519  ks
+  520  clear
+  521  ls
+  522  touch file4.txt
+  523  touch file5.txt
+  524  clear
+  525  ls
+  526  git status
+  527  git add file4.txt
+  528  git status
+  529  clear
+  530  ls
+  531  git status
+  532  vi file1.txt
+  533  git status
+  534  git add --al
+  535  git status
+  536  git commit -m"commit file1" file1.txt
+  537  git status
+  538  git commit -m"all"
+  539  git status
+  540  history
 
