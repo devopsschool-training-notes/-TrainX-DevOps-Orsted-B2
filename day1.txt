@@ -255,7 +255,9 @@ Step 3 - git push url master
 - https - https://github.com/devopsschool-demo-temporary/gittemp11.git - PAT
 - ssh - git@github.com:devopsschool-demo-temporary/gittemp11.git - you need to upload ur pub key to github
 
-PAT - id_rsa.pub in C:\Users\Rajesh Kumar\.ssh ===> https://github.com/settings/ssh/new
+PAT - https://github.com/settings/tokens
+
+SSH - id_rsa.pub in C:\Users\Rajesh Kumar\.ssh ===> https://github.com/settings/ssh/new
 New Pub/Key - $ ssh-keygen
 
 Step 4 - View all LR at Github RR/CR
