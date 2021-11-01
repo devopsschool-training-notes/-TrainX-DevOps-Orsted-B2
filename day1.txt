@@ -1,0 +1,112 @@
+What is Git?
+================
+	Versioning of text based file.
+
+
+How to install git?
+
+- Windows
+	exe - git-scm.com
+		cmd
+		git bash
+			- colors
+			- Basic linux commands u can run in windows
+	GUI
+	- https://git-scm.com/downloads/guis
+	SourceTree by Atlassion
+
+- Linux
+	rhel/centos - sudo yum install git -y
+	ubuntu - sudo apt-get install git -y
+- Mac
+	DMG - git-scm.com
+=================================
+Git Basic Workflow
+=================================
+Step 1 - Create a repo
+
+$ git init
+
+
+Step 2 - Copy / Create a file which you want to version
+
+
+Step 3 - Add a file to git
+
+$ git add filename
+$ git add --all
+
+[ ONE TIME ]
+git config user.name "Rajesh Kumar"
+git config user.email "rajesh@devopsschool.com"
+git config --list
+
+Step 4 - Commit a file to git
+
+
+$ git commit -m"This is my first commit"
+
+$ git commit -m"This is my first commit"
+[master (root-commit) dc49cc0] This is my first commit
+ 3 files changed, 3 insertions(+)
+ create mode 100644 file1.txt
+ create mode 100644 file2.txt
+ create mode 100644 file3.txt
+
+Step 5 - Check the list of revision of commits
+
+$ git log
+commit dc49cc00f9499322ab15a1e792d0d450ff7df72f (HEAD -> master)
+Author: Rajesh Kumar <rajesh@devopsschool.com>
+Date:   Mon Nov 1 13:13:04 2021 +0530
+
+    This is my first commit
+
+
+dc49cc00f9499322ab15a1e792d0d450ff7df72f
+- Commit Id
+- Checksum
+- by SHA1
+- for identifying Commit
+- can be used in short dc49cc
+- 40 CHAR hash
+
+(HEAD -> master)
+- HEAD is a TIP of current branch.
+- master - branch name which is default
+
+
+Who?		Rajesh Kumar <rajesh@devopsschool.com>
+What?
+Why?		This is my first commit
+Where?
+When?		Mon Nov 1 13:13:04 2021 +0530
+
+$ git show dc49cc00f9499322ab15a1e792d0d450ff7df72f
+commit dc49cc00f9499322ab15a1e792d0d450ff7df72f (HEAD -> master)
+Author: Rajesh Kumar <rajesh@devopsschool.com>
+Date:   Mon Nov 1 13:13:04 2021 +0530
+
+    This is my first commit
+
+diff --git a/file1.txt b/file1.txt
+new file mode 100644
+index 0000000..0fceac8
+--- /dev/null
++++ b/file1.txt
+@@ -0,0 +1,3 @@
++This is my line of Code1
++This is my line of Code2
++This is my line of Code3
+\ No newline at end of file
+diff --git a/file2.txt b/file2.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/file3.txt b/file3.txt
+new file mode 100644
+index 0000000..e69de29
+
+
+
+
+
