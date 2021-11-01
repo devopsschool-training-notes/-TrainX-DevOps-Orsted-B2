@@ -206,12 +206,89 @@ How to delete a file?
 
 
 
+==============
+mv 
+	file1 -> file2
+
+git mv
+	file1 -> file2
+	git add file2
+
+
+rm
+	file1 -> X
+
+git rm
+	file1 -> X
+	git add file1
+
+==============================================================================
+Remote Repo
+	------ GUI
+	------- ISSUES
+	------ Wiki
+	------- Manage multiple remote repo
+	------- RBAC
+===============================================================
+github - gitlab - bitbucket - gerrit - azure devops - aws devops
+-----------------------------------------------------------------
+				github server
+		------ GUI
+		------- ISSUES
+		------ Wiki
+		------- Manage multiple remote repo
+		------- RBAC
+
+PERSON 1 -> Git init -> Add -> Commit -> Push to RR(github)
+
+
+PERSON 2 -> git clone (github) -> Add -> Commit ->  Push to RR(github)
+
+
+PERSON 1 -> Pull from RR(github)
+=============================================
+Step 1 - Register and Validate an Account with github
+
+Step 2 - Login and create a repo at github
+
+Step 3 - git push url master
+- https - https://github.com/devopsschool-demo-temporary/gittemp11.git - PAT
+- ssh - git@github.com:devopsschool-demo-temporary/gittemp11.git - you need to upload ur pub key to github
+
+PAT - id_rsa.pub in C:\Users\Rajesh Kumar\.ssh ===> https://github.com/settings/ssh/new
+New Pub/Key - $ ssh-keygen
+
+Step 4 - View all LR at Github RR/CR
 
 
 
-
-
-
+  613  git log --oneline
+  614  git push https://github.com/devopsschool-demo-temporary/gittemp11.git master
+  615  clear
+  616  ls
+  617  touch ssh.txt;git add --all;git commit -m"ading 1"
+  618  git push git@github.com:devopsschool-demo-temporary/gittemp11.git master
+  619  clear
+  620  cd ..
+  621  ls
+  622  clear
+  623  ls
+  624  git clone git@github.com:devopsschool-demo-temporary/gittemp11.git
+  625  clear
+  626  ls
+  627  cd gittemp11/
+  628  clear
+  629  git log --oneline
+  630  touch dev2.txt;git add --all;git commit -m"adding dev2"
+  631  git push git@github.com:devopsschool-demo-temporary/gittemp11.git master
+  632  git push origin master
+  633  cd ..
+  634  clear
+  635  ls
+  636  cd repo1/
+  644  git remote add origin git@github.com:devopsschool-demo-temporary/gittemp11.git
+  645  git pull origin master
+  646  ls
 
 
 
