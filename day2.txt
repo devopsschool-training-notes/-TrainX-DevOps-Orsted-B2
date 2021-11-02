@@ -114,6 +114,67 @@ How to create branch in git?
   551  git branch -d fea11
   552   git branch -a
 
+HEAD - Tip of Last commit of each branch
+HEAD~1
+HEAD~2
+HEAD~3
+
+"Git internal"
+
+
+Fast Forward
+========================
+  567  git branch fea
+  568  git checkout fea
+  569  git log --oneline
+  570  clear
+  571  ls
+  572  touch ff1.txt;git add .;git commit -m"Ading ff1"
+  573  touch ff2.txt;git add .;git commit -m"Ading ff2"
+  574  touch ff3.txt;git add .;git commit -m"Ading ff3"
+  575  clear
+  576  git checkout master
+  577  git diff fea
+  578  git merge fea
+  579  ls
+  580  git log --oneline
+  581  gitk
+
+Recursive  aka 3 way merge
+=================================
+ 585  git checkout fea
+  586  touch recurse1.txt;git add .;git commit -m"adding recurse1"
+  587  touch recurse2.txt;git add .;git commit -m"adding recurse2"
+  588  git checkout master
+  589  touch master1.txt;git add .;git commit -m"adding master1"
+  590  touch master2.txt;git add .;git commit -m"adding master2"
+  591  clear
+  592  git checkout fea
+  593  touch recurse3.txt;git add .;git commit -m"adding recurse3"
+  594  touch recurse4.txt;git add .;git commit -m"adding recurse4"
+  595  git log --oneline
+  596  git checkout master
+  597  git log --oneline
+  598  touch master3.txt;git add .;git commit -m"adding master3"
+  599  clear
+  600  git merge fea
+
+Cherry-Picking
+===========================
+  603  git log --oneline
+  604  clear
+  605  git checkout fea
+  606  touch cherry1.txt;git add .;git commit -m"adding cherry1"
+  607  touch cherry2.txt;git add .;git commit -m"adding cherry2"
+  608  touch cherry3.txt;git add .;git commit -m"adding cherry3"
+  609  touch cherry4.txt;git add .;git commit -m"adding cherry4"
+  610  clear
+  611  git log --oneline
+  612  git checkout master
+  613  clear
+  614  git cherry-pick 878e7c5
+  615  ls
+  616  git log --oneline
 
 
 
