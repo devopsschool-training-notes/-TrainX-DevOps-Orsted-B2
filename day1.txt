@@ -1,296 +1,197 @@
-What is Git?
-================
-	Versioning of text based file.
+- Branching
+- Merging
+- Conflict resolution
+- Undoing
+- gitignore
+- pull request
 
+- Branching
+============================================
+What is branching?
+	- is a LINE of code for
+		Seprate 
+			DEV
+			BUG FIXING
+			Enhnacment
+		From Main line of Code.
+----------------------------------------
+Default branch 
+	- Master
+New Version of Git & github - Default branch - main
 
-How to install git?
-
-- Windows
-	exe - git-scm.com
-		cmd
-		git bash
-			- colors
-			- Basic linux commands u can run in windows
-	GUI
-	- https://git-scm.com/downloads/guis
-	SourceTree by Atlassion
-
-- Linux
-	rhel/centos - sudo yum install git -y
-	ubuntu - sudo apt-get install git -y
-- Mac
-	DMG - git-scm.com
-=================================
-Git Basic Workflow
-=================================
-Step 1 - Create a repo
-
-$ git init
-
-
-Step 2 - Copy / Create a file which you want to version
-
-
-Step 3 - Add a file to git
-
-$ git add filename
-$ git add --all
-
-[ ONE TIME ]
-git config user.name "Rajesh Kumar"
-git config user.email "rajesh@devopsschool.com"
-git config --list
-
-Step 4 - Commit a file to git
-
-
-$ git commit -m"This is my first commit"
-
-$ git commit -m"This is my first commit"
-[master (root-commit) dc49cc0] This is my first commit
- 3 files changed, 3 insertions(+)
- create mode 100644 file1.txt
- create mode 100644 file2.txt
- create mode 100644 file3.txt
-
-Step 5 - Check the list of revision of commits
-
-$ git log
-commit dc49cc00f9499322ab15a1e792d0d450ff7df72f (HEAD -> master)
-Author: Rajesh Kumar <rajesh@devopsschool.com>
-Date:   Mon Nov 1 13:13:04 2021 +0530
-
-    This is my first commit
-
-
-dc49cc00f9499322ab15a1e792d0d450ff7df72f
-- Commit Id
-- Checksum
-- by SHA1
-- for identifying Commit
-- can be used in short dc49cc
-- 40 CHAR hash
-
-(HEAD -> master)
-- HEAD is a TIP of current branch.
-- master - branch name which is default
-
-
-Who?		Rajesh Kumar <rajesh@devopsschool.com>
-What?
-Why?		This is my first commit
-Where?
-When?		Mon Nov 1 13:13:04 2021 +0530
-
-$ git show dc49cc00f9499322ab15a1e792d0d450ff7df72f
-commit dc49cc00f9499322ab15a1e792d0d450ff7df72f (HEAD -> master)
-Author: Rajesh Kumar <rajesh@devopsschool.com>
-Date:   Mon Nov 1 13:13:04 2021 +0530
-
-    This is my first commit
-
-diff --git a/file1.txt b/file1.txt
-new file mode 100644
-index 0000000..0fceac8
---- /dev/null
-+++ b/file1.txt
-@@ -0,0 +1,3 @@
-+This is my line of Code1
-+This is my line of Code2
-+This is my line of Code3
-\ No newline at end of file
-diff --git a/file2.txt b/file2.txt
-new file mode 100644
-index 0000000..e69de29
-diff --git a/file3.txt b/file3.txt
-new file mode 100644
-index 0000000..e69de29
-=====================================================
-git add Vs git commit
-
-
- 518  git status
-  519  ks
-  520  clear
-  521  ls
-  522  touch file4.txt
-  523  touch file5.txt
-  524  clear
-  525  ls
-  526  git status
-  527  git add file4.txt
-  528  git status
-  529  clear
-  530  ls
-  531  git status
-  532  vi file1.txt
-  533  git status
-  534  git add --al
-  535  git status
-  536  git commit -m"commit file1" file1.txt
-  537  git status
-  538  git commit -m"all"
-  539  git status
-  540  history
-
------------------
-How to version Existing file code changes?
-Can i commit selective file?
-How to commit directory?
-How to rename a file?
-How to move a file from one location to another?
-How to delete a file?
+What is Branching Strategy
 =========================
-  544  ls
-  545  vi file3.txt
-  546  git status
-  547  git add --all
-  548  git status
-  549  git commit -m"adding changes"
-  550  ls
-  551  clear
-  552  touch file6.txt
-  553  touch file7.txt
-  554  touch file8.txt
-  555  git status
-  556  git add --all
-  557  git status
-  558  git commit -m"adding file7" file7.txt
-  559  git status
-  560  clear
-  561  git commit -m"all"
-  562  git status
-  563  mkdir src
-  564  git status
-  565  touch src/test.txt
-  566  clear
-  567  git status
-  568  git add --all
-  569  git commit -m"adding dir"
-  570  git status
-  571  clear
-  572  ls
-  573  git mv file1.txt file11.txt
-  574  git status
-  575  ls
-  576  git commit -m"renaming a file"
-  577  git status
+	- Bug fixing
+	- Enhancement
+	- Team
+	- 2 Diff Geog*
+https://docs.microsoft.com/en-us/azure/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops
+	
+
+Types of branches in Git?
+===================================
+Local Branch		- Read - Write
+Remote Branch		- Read Only
+Temporary Branch	- Ref only
+
+ 501  git --version
+  502  clear
+  503  git branch
+  504  ls
+  505  git branch -r
+  506  clear
+  507  git log --oneline
+  508  git checkout 28de6f5
+  509  git branch -a
+  510  git checkout master
+  511  git branch -a
+
+Why we have 
+- Local Branch		- Read - Write
+- Remote Branch		- Read Only
+
+PUSH === 
+Pull === Fetch + Merge
+
+git push origin master
+
+ 502  git brach -a
+  503  clear
+  504  git branch -a
+  505  git checkout remotes/origin/master
+  506  ls
+  507  clear
+  508  git checkout master
+  509  git fetch origin master
+  510  cleart
+  511  clear
+  512  ls
+  513  git checkout remotes/origin/master
+  514  ls
+  515  clear
+  516  ls
+  517  git checkout master
+  518  git branch -a
+  519  git merge remotes/origin/master
+  520  ls
+========================================================
+How to create a branches?
+=================================
+git branch dev
+git checkout -b qa
+git switch -c ops
+
+ 530  git branch dev
+  531  git branch -a
+  532  git checkout dev
+  533  git branch -a
+  534  clear
+  535  ls
+  536  touch dev1.txt;git add --all;git commit -m"adding dev1"
+  537  touch dev1.txt;git add --all;git commit -m"adding dev2"
+  538  touch dev2.txt;git add --all;git commit -m"adding dev2"
+  539  touch dev3.txt;git add --all;git commit -m"adding dev3"
+  540  clear
+  541  git log --oneline
+  542  git checkout master
+  543  clear
+  544  git log --oneline
+
+
+working with non-master branch from cloning
+
+  552  mkdir raju
+  553  git clone https://github.com/devopsschool-demo-temporary/nov-1-2021.git raju
+  554  ls
+  555  cd raju/
+  556  clear
+  557  git branch -a
+  558  git checkout dev
+  559  git branch -a
+============================================================
+HEAP is TIp of the Current branch which you have checked out.
+=========================================================
+Fast Forward
+
+  572  git log --oneline
+  573  git checkout -b qa
+  574  clear
+  575  git log --oneline
+  576  touch qa1.txt;git add --all;git commit -m"adding qa1"
+  577  touch qa2.txt;git add --all;git commit -m"adding qa2"
   578  clear
-  579  clear
-  580  ls
-  581  git mv file5.txt src/
-  582  git status
-  583  ls
-  584  git commit -m"moving a file"
-  585  clear
-  586  git status
-  587  clear
-  588  ls
-  589  git rm file8.txt
-  590  git status
-  591  ls
-  592  git commit -m"file delete"
-  593  git status
-  594  ls
-  595  clear
-  596  git log
-  597  clear
-  598  git log --oneline
-  599  git checkout 0636319
-  600  clear
-  601  ls
-  602  git checkout master
-  603  ls
-  604  history
+  579  touch qa3.txt;git add --all;git commit -m"adding qa3"
+  580  git log --oneline
+  581  git checkout master
+  582  git log --oneline
+  583  clear
+  584  git merge qa
+  585  git log --oneline
 
 
 
+Recursive
 
-==============
-mv 
-	file1 -> file2
-
-git mv
-	file1 -> file2
-	git add file2
-
-
-rm
-	file1 -> X
-
-git rm
-	file1 -> X
-	git add file1
-
-==============================================================================
-Remote Repo
-	------ GUI
-	------- ISSUES
-	------ Wiki
-	------- Manage multiple remote repo
-	------- RBAC
-===============================================================
-github - gitlab - bitbucket - gerrit - azure devops - aws devops
------------------------------------------------------------------
-				github server
-		------ GUI
-		------- ISSUES
-		------ Wiki
-		------- Manage multiple remote repo
-		------- RBAC
-
-PERSON 1 -> Git init -> Add -> Commit -> Push to RR(github)
-
-
-PERSON 2 -> git clone (github) -> Add -> Commit ->  Push to RR(github)
-
-
-PERSON 1 -> Pull from RR(github)
-=============================================
-Step 1 - Register and Validate an Account with github
-
-Step 2 - Login and create a repo at github
-
-Step 3 - git push url master
-- https - https://github.com/devopsschool-demo-temporary/gittemp11.git - PAT
-- ssh - git@github.com:devopsschool-demo-temporary/gittemp11.git - you need to upload ur pub key to github
-
-PAT - https://github.com/settings/tokens
-
-SSH - id_rsa.pub in C:\Users\Rajesh Kumar\.ssh ===> https://github.com/settings/ssh/new
-New Pub/Key - $ ssh-keygen
-
-Step 4 - View all LR at Github RR/CR
-
-
-
-  613  git log --oneline
-  614  git push https://github.com/devopsschool-demo-temporary/gittemp11.git master
+ 589  git log --oneline
+  590  git checkout -b recurse
+  591  git log --oneline
+  592  clear
+  593  touch recurse1.txt;git add --all;git commit -m"adding recuse1"
+  594  touch recurse2.txt;git add --all;git commit -m"adding recuse2"
+  595  git checkout master
+  596  git log --oneline
+  597  touch master1.txt;git add --all;git commit -m"adding master1"
+  598  touch master2.txt;git add --all;git commit -m"adding master2"
+  599  git log --oneline
+  600  git checkout recurse
+  601  touch recurse3.txt;git add --all;git commit -m"adding recuse3"
+  602  touch recurse4.txt;git add --all;git commit -m"adding recuse4"
+  603  git log --oneline
+  604  git checkout master
+  605  git log --oneline
+  606  touch master3.txt;git add --all;git commit -m"adding master3"
+  607  clear
+  608  git diff recurse
+  609  ls
+  610  clear
+  611  ls
+  612  git checkout recurse
+  613  ls
+  614  git checkout master
   615  clear
-  616  ls
-  617  touch ssh.txt;git add --all;git commit -m"ading 1"
-  618  git push git@github.com:devopsschool-demo-temporary/gittemp11.git master
-  619  clear
-  620  cd ..
-  621  ls
-  622  clear
-  623  ls
-  624  git clone git@github.com:devopsschool-demo-temporary/gittemp11.git
-  625  clear
-  626  ls
-  627  cd gittemp11/
-  628  clear
-  629  git log --oneline
-  630  touch dev2.txt;git add --all;git commit -m"adding dev2"
-  631  git push git@github.com:devopsschool-demo-temporary/gittemp11.git master
-  632  git push origin master
-  633  cd ..
-  634  clear
+  616  git merge recurse
+  617  ls
+  618  git log --oneline
+  619  git log
+  620  git log --oneline
+
+
+
+Cherry-Picking
+=======================================
+
+  624  git checkout recurse
+  625  touch cherry1.txt;git add --all;git commit -m"adding cherry1"
+  626  touch cherry2.txt;git add --all;git commit -m"adding cherry2"
+  627  touch cherry3.txt;git add --all;git commit -m"adding cherry3"
+  628  touch cherry4.txt;git add --all;git commit -m"adding cherry4"
+  629  touch cherry5.txt;git add --all;git commit -m"adding cherry5"
+  630  clear
+  631  ls
+  632  git log --oneline
+  633  git checkout master
+  634  git cherry-pick 5719792
   635  ls
-  636  cd repo1/
-  644  git remote add origin git@github.com:devopsschool-demo-temporary/gittemp11.git
-  645  git pull origin master
-  646  ls
+  636  git log --oneline
+  637  clear
+  638  git cherry-pick --help
+
+
+
+
+
+
+
 
 
 
