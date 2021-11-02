@@ -1,0 +1,121 @@
+Branching
+Merging
+Conflict Resol*
+Git pull Request
+
+Git undoing
+git ignore
+Git rebase/reset
+====================================
+What is branch?
+-------------------
+LINE OF Code on Which are allowed to work.
+--- Specific purpose
+
+Deafult - Master
+Default - Main
+================
+Why branching?
+----------------
+	BUG
+	FEA
+	PATCH
+	HOTFIX
+	Release
+	TEAM
+	GERO*
+	Components
+https://docs.microsoft.com/en-us/azure/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops
+
+
+Types of branches in git?
+- Local		- RW
+- Remote	- RO
+- Temporary
+
+ 502  git branch
+  503  ls
+  504  clear
+  505  git branch -r
+  506  git branch -a
+  507  git checkout remotes/origin/master
+  508  git branch -a
+  509  ls
+  510  git checkout master
+  511  git branch -a
+  512  clear
+  513  git log --oneline
+  514  git checkout 3eab4af
+  515  git branch -a
+  516  git checkout master
+
+Why we have Remote branch?
+===========================================
+pull = fetch + merge
+
+USER1
+--------------
+ 492  touch fetch.txt;git add .;git commit -m"adding fetch"
+  493  git push origin master
+  494  clear
+  495  ls
+  496  git branch -a
+  497  ls
+  498  git checkout remotes/origin/master
+  499  ls
+  500  exit
+  501  git push origin master
+  502  git pull origin master
+  503  clear
+  504  touch fetch.txt;git add --all;git commit -m"adding featch"
+  505  ls
+  506  git branch -r
+  507  git checkout origin/master
+  508  ls
+  509  git checkout master
+  510  cleare
+  511  clear
+  512  git push origin master
+  513  git checkout origin/master
+  514  ls
+  515  git checkout master
+
+USER2
+--------------
+  525  git fetch origin master
+  526  ls
+  527  git branch -1
+  528* clea
+  529  git branch -a
+  530  git checkout remotes/origin/master
+  531  ls
+  532  git checkout master
+  533  clear
+  534  git merge remotes/origin/master
+  535  ls
+  536  git branch -a
+  537  git config --list
+  538  clear
+  539  git branch -a
+  540  git fetch origin master
+  541  history
+
+
+How to create branch in git?
+=================================
+  543   git branch fea1
+  544   git branch -a
+  545  git checkout fea1
+  546  ls
+  547  git checkout -b fea11
+  548*  git branch -
+  549  git branch -d fea11
+  550  git checkout fea1
+  551  git branch -d fea11
+  552   git branch -a
+
+
+
+
+Ref
+https://www.devopsschool.com/pdf/git/slides/git-plumbing-porcelain-introduction.pdf
