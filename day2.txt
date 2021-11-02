@@ -176,6 +176,78 @@ Cherry-Picking
   615  ls
   616  git log --oneline
 
+Conflict Resol*
+Git pull Request
+Git undoing
+============================================
+
+
+THIS IS LINE#1
+THIS IS LINE#2
+THIS IS LINE#3
+
+THIS IS LINE#1
+THIS IS LINE#2
+THIS IS LINE#3444444
+
+  624  vi cherry1.txt
+  625  git add .;git commit -m"adding "
+  626  git checkout fea
+  627  vi cherry1.txt
+  628  git add .;git commit -m"adding "
+  629  clear
+  630  git checkout master
+  631  git merge fea
+  632  vi cherry1.txt
+  633  git add .;git commit -m"adding "
+  634  git merge fea
+
+
+Git pull Request
+========================
+
+
+
+Git undoing
+==============================================
+WORKDIR ==> STAGING ==> Repo
+================================
+Repo --> Staging --> Workdir --> NO WHERE
+
+  645  touch raju1.txt
+  646  git status
+  647  git clean -f -d
+  648  git status
+  649  clear
+  650  history
+  651  mkdir rrrr
+  652  clear
+  653  git clean -f -d
+  654  touch reset.txt
+  655  git status
+  656  git add reset.txt
+  657  git status
+  658  clear
+  659  git status
+  660  git reset reset.txt
+  661  git status
+  662  git clean -f -d
+  663  cloear
+  664  clear
+  665  touch good.txt;git add .;git commit -m"this is a good commit"
+  666  touch bad.txt;git add .;git commit -m"this is a bad commit"
+  667  git oneline --online
+  668  git log --online
+  669  git log --oneline
+  670  git revert 78068df
+  671  git log --oneline
+  672  git diff 7d42ae2 78068df
+  673  git diff 7d42ae2 a893896
+
+
+git ignore
+Git rebase/reset
+================================
 
 
 Ref
