@@ -1,0 +1,105 @@
+Azure DevOps
+======================
+
+What are the Objective of Org?
+---------------------------------
+Improve of Quality of Software
+Reduce the Soft Dev Cost and Running Cost
+Imm Release
+
+
+How can i do that?
+
+		What we have???			WHAT WE SHOULD HAVE?
+=================================================================
+
+Model		Waterfall/Agile			DEVOPS --> DevSecOps
+
+Architecture	Monolitic/SOA			Microservcies
+
+Platform	Physical/Vms			Container
+
+Mindset		I would do Only 1 work		ALL WORK
+
+Team Anatomy	Dev-QA-IT-DB-Ops		ONE
+
+Culture		DIFFERENCES			ONE
+
+PROCESS		OLD In-Effective		Effective
+
+Practices	OLD In-Effective		Effective	
+
+Tools		Fear of Technology		LATEST TECH
+
+
+
+ALL WORK ==
+======================================
+Are you doing CODING for the product?
+Are you doing CODING for a testing of the product?
+Are you doing CODING for a ops/infra of the product?
+==================================================
+			ONE PERSON
+			=========
+			DEVOPS
+
+
+How to perform DevOps?
+======================
+
+CI -> CD -> CD
+------------------------
+https://miro.medium.com/max/1400/0*kLIvYAJJd3ZQZbw1.jpg
+
+What is CI?
+----------------------	
+	Allow Failure
+
+Auto Build + Auto Test
+======================
+     Imm feedback
+
+PLAN => CODE => Analysis => Build => UT ==> Pack => Archive => Dep2QA ==> AT => CC
+===================================================================================
+JIRA => GIT => SonarQube => Maven => Junit => War => Artifactory => Ansible => Selenium => Jacoco
+================================================================================================
+ARCH => DEV => DEV      => BR  ==>  DEV    ==> BR  => BR ========> QA =======> QA ====> Mgr
+===============================================================================================
+					ONE PLATFORM
+				-------------------------------------
+					Jenkins
+					Azure DevOps
+------------------------------------------------------------------------------------------
+BOARD -> REPOS -> ====================PIPELINE============ARTIFACT=========== -> TESTPLAN 
+
+CD = Delivery?
+----------------------------------
+	A POINT
+	- Where you have a ready package for the production.
+
+CD = Deployment
+https://blog.crisp.se/wp-content/uploads/2013/02/continuous-delivery-deployment-sm.jpg
+
+Google has introduced => SRE
+=============================
+https://www.devopsschool.com/path/
+
+===============================================
+Step 1 - Register and Login at https://dev.azure.com/
+
+Step 2 - Create an ORG
+
+Step 3 - Create a proj
+
+Step 4 - Create a repo
+
+Step 5 - WORK WITH REPo
+			1 create git repo
+			1 import git repo
+			1 tfvs repo
+
+
+
+
+
+
