@@ -1,0 +1,142 @@
+Adding Windows Agent
+==============================
+Adding Linux Agent
+
+
+user name - administrator
+=====================WINDOWS===================================
+15.206.88.245	WhI4xE?yaXwEQ%aBvyWG%v9R4N)6bS;%				
+13.233.199.204	!s!W=vj*zb@STAXo44pjy$)KY!.IWMXt		
+13.233.147.180	vM7FcSXxQChtAKU5G4%yJUQY(sm3*=w2		
+13.233.158.71	yz7(d7;xUN;TFJrYP8--)f-vyPWE&57C		Morten Koch		
+13.233.26.67	$rI&cUj=!OpWf=qqPK!L-pyr98j2d975		Artur Boczek	
+13.233.102.164	*%7Ygjj?&Ubc$bUE5SG$uNB2GcG3Rg;!		Dan Hansen		
+3.110.49.30	e$2TWt&3;.uoozuqU3*W3!yjPPzXhg$z		Iurie Bejenaru		
+3.108.52.207	W.9n-!-R4Ezo*dr&qQ6N7;d2V8hr3nh3		Viktoriya Clausen
+13.233.151.192	=qQPuAN;wP!z6EfdsoH?DQ8S%u258Szb		Tom Ditlev
+65.0.21.43	iz*uA$p!?4.*qcm8EktHX-GXD@n@uz.h		Espen Torgersen
+
+====================LINUX---------------------
+Username - centos
+
+Artur Boczek		3.7.253.65
+Morten Koch		13.233.139.35
+Dan Hansen		13.233.96.229
+Iurie Bejenaru		15.207.111.62
+Viktoriya Clausen	3.109.212.253
+Tom Ditlev		3.109.56.198
+Espen Torgersen		13.235.87.112
+
+
+ssh -i rajesh-mumbai.pem centos@13.235.83.254
+
+PUTTY - 
+https://www.devopsschool.com/blog/how-to-login-linux-server-of-aws-from-windows-using-putty/
+Step 5 – Follow Image as below
+
+
+
+
+Windows
+--------------
+Administrator
+13.233.201.31	Qw53EX4Flxu$;j*y-gdZV(d.*XYeTzL?
+
+
+S C:\vsts-agent-win-x64-2.194.0> cd C:\agent
+PS C:\agent> .\config.cmd
+
+  ___                      ______ _            _ _
+ / _ \                     | ___ (_)          | (_)
+/ /_\ \_____   _ _ __ ___  | |_/ /_ _ __   ___| |_ _ __   ___  ___
+|  _  |_  / | | | '__/ _ \ |  __/| | '_ \ / _ \ | | '_ \ / _ \/ __|
+| | | |/ /| |_| | | |  __/ | |   | | |_) |  __/ | | | | |  __/\__ \
+\_| |_/___|\__,_|_|  \___| \_|   |_| .__/ \___|_|_|_| |_|\___||___/
+                                   | |
+        agent v2.194.0             |_|          (commit 7dbde4c)
+
+
+>> Connect:
+
+Enter server URL > https://dev.azure.com/professnow/
+Enter authentication type (press enter for PAT) > PAT
+Enter personal access token > ************************
+Error reported in diagnostic logs. Please examine the log for more details.
+    - C:\agent\_diag\Agent_20211105-074729-utc.log
+VS30063: You are not authorized to access https://dev.azure.com.
+Failed to connect.  Try again or ctrl-c to quit
+Enter server URL > https://dev.azure.com/professnow
+Enter authentication type (press enter for PAT) >
+Enter personal access token > ****************************************************
+Connecting to server ...
+
+>> Register Agent:
+
+Enter agent pool (press enter for default) > ProfessPool
+Enter agent name (press enter for EC2AMAZ-O09SO1V) > windows1
+Scanning for tool capabilities.
+Connecting to the server.
+Successfully added the agent
+Testing agent connection.
+Enter work folder (press enter for _work) >
+2021-11-05 07:54:26Z: Settings Saved.
+Enter run agent as service? (Y/N) (press enter for N) > Y
+Enter User account to use for the service (press enter for NT AUTHORITY\NETWORK SERVICE) > administrator
+Enter Password for the account EC2AMAZ-O09SO1V\administrator > ********************************
+Granting file permissions to 'EC2AMAZ-O09SO1V\administrator'.
+Service vstsagent.professnow.ProfessPool.windows1 successfully installed
+Service vstsagent.professnow.ProfessPool.windows1 successfully set recovery option
+Service vstsagent.professnow.ProfessPool.windows1 successfully set to delayed auto start
+Service vstsagent.professnow.ProfessPool.windows1 successfully configured
+Enter whether to prevent service starting immediately after configuration is finished? (Y/N) (press enter for N) > Y
+PS C:\agent>
+
+
+===========================
+SSH using PEM file
+PUTTY using PPK file
+
+
+13.235.83.254
+centos
+
+
+
+===================LINUX===============
+AzureDevOps agent MUST not be SUDO
+=======================================
+
+ 1  pwd
+    2  ls
+    3  sudo yum install wget unzip -y
+    4  clear
+    5  ls
+    6  wget https://vstsagentpackage.azureedge.net/agent/2.194.0/vsts-agent-linux-x64-2.194.0.tar.gz
+    7  ls
+    8  clear
+    9  sudo yum update
+   10  mkdir myagent && cd myagent
+   11  ls
+   12  clear
+   13  ls
+   14  cd ..
+   15  ls
+   16  mv vsts-agent-linux-x64-2.194.0.tar.gz myagent/
+   17  ls
+   18  cd myagent/
+
+   21  ls
+   22  tar -zxvf vsts-agent-linux-x64-2.194.0.tar.gz
+   23  clear
+   24  ls
+   25  ./config.sh
+   26  ./bin/installdependencies.sh
+   27  sudo ./bin/installdependencies.sh
+   28  clear
+   29  ./config.sh
+   30  ls
+   31  ./run.sh
+   32  nohup ./run.sh &
+   33  bg
+
+
