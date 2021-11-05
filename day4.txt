@@ -140,3 +140,71 @@ AzureDevOps agent MUST not be SUDO
    33  bg
 
 
+==================
+Pipeline
+----STAGE-------
+Build
+	Job(on Agent)
+			mvn compile 
+	Job(on Agent) 
+	Job(on Agent) 
+UT
+	job(on Agent)
+			mvn test
+Package
+	jonb(on Agent)
+			mvn package
+
+============================================
+You want to do something
+---------------------
+		JAVA	masterscript
+Build		maven	pom.xml -------> mvn compile
+Package		maven	pom.xml -------> mvn package
+Deploy		maven	pom.xml -------> mvn deploy
+testing		maven	pom.xml -------> mvn test
+
+		dotnet masterscript
+Build		msbuild	file.sln -------> mvn compile
+Package		msbuild	file.sln-------> mvn package
+Deploy		msbuild	file.sln -------> mvn deploy
+testing		msbuild	file.sln -------> mvn test
+
+===============
+Java
+=---------
+sudo yum install java-11-openjdk-devel
+
+
+========================
+Maven
+-----------
+cd
+wget https://dlcdn.apache.org/maven/maven-3/3.8.3/binaries/apache-maven-3.8.3-bin.zip
+unzip apache-maven-3.8.3-bin.zip
+export PATH=$PATH:/home/centos/apache-maven-3.8.3/bin
+
+
+install git
+
+$sudo yum install git -y
+Upgrade git
+https://devopsschool.com/tutorial/git/git-upgrade-process.html
+
+
+
+
+
+
+
+
+
+https://vstsagentpackage.azureedge.net/agent/2.193.0/vsts-agent-win-x64-2.194.0.zip
+
+OLD VERSION OF AGENT
+https://github.com/microsoft/azure-pipelines-agent/releases
+
+
+
+
+
