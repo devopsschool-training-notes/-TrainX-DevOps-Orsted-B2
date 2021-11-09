@@ -1,0 +1,276 @@
+Using Classic UI
+- Checkout a source code
+- Maven compile
+- Run Some Bash Command
+===========================================
+Azure DevOps
+=========================
+https://dev.azure.com/professnow
+https://dev.azure.com/wizbrand
+https://dev.azure.com/holidaylandmark
+
+
+BASIC - Add 5 PEOPLE
+
+Dh20211103@outlook.com		DONE
+shturmova_victoria@hotmail.com	DONE
+skrivtilespen@outlook.dk	DONE
+lothar345@wp.pl 
+
+Using Classic UI
+- Checkout a source code
+- Maven compile
+- Run Some Bash Command
+===========================================
+
+
+pool:
+  name: ProfessPool
+  demands: maven
+
+#Your build pipeline references an undefined variable named ‘Parameters.mavenPOMFile’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+
+steps:
+- task: Maven@3
+  displayName: 'Maven pom.xml'
+  inputs:
+    mavenPomFile: '$(Parameters.mavenPOMFile)'
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: '**/*.jar'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
+
+- bash: 
+  displayName: 'Bash Script'
+===========================================
+===
+Azure = AWS 
+================
+Vms
+----- Agent
+=====================================
+YAML
+================
+
+
+
+=======================================================================================
+=======================================================================================
+What is YAML?
+-------------------------------
+Declarative Lang
+--------------------
+
+C|JAVA ==> 	======> PHP/Python =====>
+==========================================================
+COMPILED Lang*	======> Intrep*	   =====> Declarative 
+						Express Desire Or declare our Desire in Supported Format
+						==================================================
+						XML ==> JSON + YAML
+						       (API)   HUMAN
+
+
+
+Ansible + Azure DevOps Pipleline + AWS formatation | ARM === YAML
+
+Terraform - TCL + JSON
+=============================
+COPY
+	what --> where to
+
+
+How to store Yaml?
+===========================
+.yaml yml
+================
+
+
+
+---
+YAML Content
+...
+
+---
+YAML Content
+...
+
+
+Azure DevOps
+======================
+JOB(S)
+
+JOB1
+	Step(S)
+		Task1
+		
+		Task2
+		
+		Task3
+
+JOB2
+
+JOB3
+
+
+
+pool:
+  name: ProfessPool
+  demands: maven
+
+#Your build pipeline references an undefined variable named ‘Parameters.mavenPOMFile’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
+
+steps:
+
+
+- bash: 
+  displayName: 'Bash Script'
+
+Windows
+	Terraform
+		- Using Existing Shell
+		$ terraform init;terraform apply 
+		or
+		- Extension
+
+	Powershell Script
+
+Linux
+	Terraform
+	Bash Script
+
+	Agent
+	--- AZURE CLI
+		COnfugure
+		-----
+		Azssss
+===================================
+What is CloudShell
+--------------------------
+	VM
+	with ->
+		Azure CLI configure
+		Avoid Proxy
+
+
+
+
+
+steps:
+- bash: 
+  displayName: 'Bash Script'
+
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV2@2
+  displayName: 'Terraform : azurerm'
+  inputs:
+    command: apply
+    environmentServiceNameAzureRM: 'COTOCUS (47f54101-6c5d-4e5b-8b0d-76d38d398266)'
+
+
+pool:
+  name: Azure Pipelines
+steps:
+- powershell: 
+  displayName: 'PowerShell Script'
+
+
+
+https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/?view=azure-devops
+==========================
+
+===============================
+pool:
+  name: ProfessPool
+
+
+steps:
+- script: touch rajesh.txt
+- script: mkdir ramukaka
+- script: git clone https://github.com/devopsschool-demo-labs-projects/helloworld-java-maven
+
+
+===============================
+
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+============
+
+Deployment Groups VS Agent Pools Vs Environement
+==========================================================
+Agent Installed | Agent Installed
+
+
+
+Deployment
+--------------
+Deployment groups are only available with Classic release pipelines
+
+============================
+mkdir azagent;cd azagent;curl -fkSL -o vstsagent.tar.gz https://vstsagentpackage.azureedge.net/agent/2.194.0/vsts-agent-linux-x64-2.194.0.tar.gz;tar -zxvf vstsagent.tar.gz; if [ -x "$(command -v systemctl)" ]; then ./config.sh --deploymentgroup --deploymentgroupname "rajesh-dep-group" --acceptteeeula --agent $HOSTNAME --url https://dev.azure.com/professnow/ --work _work --projectname 'professional' --auth PAT --token fi23yt5jm3dj3tnpe5ypsllfochqm4gostf5kq2poe6bdcjy3niq --runasservice; sudo ./svc.sh install; sudo ./svc.sh start; else ./config.sh --deploymentgroup --deploymentgroupname "rajesh-dep-group" --acceptteeeula --agent $HOSTNAME --url https://dev.azure.com/professnow/ --work _work --projectname 'professional' --auth PAT --token fi23yt5jm3dj3tnpe5ypsllfochqm4gostf5kq2poe6bdcjy3niq; ./run.sh; fi
+=============================================
+$ErrorActionPreference="Stop";If(-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent() ).IsInRole( [Security.Principal.WindowsBuiltInRole] “Administrator”)){ throw "Run command in an administrator PowerShell prompt"};If($PSVersionTable.PSVersion -lt (New-Object System.Version("3.0"))){ throw "The minimum version of Windows PowerShell that is required by the script (3.0) does not match the currently running version of Windows PowerShell." };If(-NOT (Test-Path $env:SystemDrive\'azagent')){mkdir $env:SystemDrive\'azagent'}; cd $env:SystemDrive\'azagent'; for($i=1; $i -lt 100; $i++){$destFolder="A"+$i.ToString();if(-NOT (Test-Path ($destFolder))){mkdir $destFolder;cd $destFolder;break;}}; $agentZip="$PWD\agent.zip";$DefaultProxy=[System.Net.WebRequest]::DefaultWebProxy;$securityProtocol=@();$securityProtocol+=[Net.ServicePointManager]::SecurityProtocol;$securityProtocol+=[Net.SecurityProtocolType]::Tls12;[Net.ServicePointManager]::SecurityProtocol=$securityProtocol;$WebClient=New-Object Net.WebClient; $Uri='https://vstsagentpackage.azureedge.net/agent/2.194.0/vsts-agent-win-x64-2.194.0.zip';if($DefaultProxy -and (-not $DefaultProxy.IsBypassed($Uri))){$WebClient.Proxy= New-Object Net.WebProxy($DefaultProxy.GetProxy($Uri).OriginalString, $True);}; $WebClient.DownloadFile($Uri, $agentZip);Add-Type -AssemblyName System.IO.Compression.FileSystem;[System.IO.Compression.ZipFile]::ExtractToDirectory( $agentZip, "$PWD");.\config.cmd --deploymentgroup --deploymentgroupname "rajesh-dep-group" --agent $env:COMPUTERNAME --runasservice --work '_work' --url 'https://dev.azure.com/professnow/' --projectname 'professional'; Remove-Item $agentZip;
+
+
+
+
+Aws 
+- User Data
+
+Azure
+- Custome data
+
+https://www.devopsschool.com/blog/list-of-popular-deployment-strategies/
+
+
+
+
+==============================================
+
+variables:
+- group: last
+- name: my-passed-variable
+  value: idontknow
+
+steps:
+- script: echo $(my-passed-variable)
+- script: echo $(myage) 
+
+
+
+============================
+ON CERTAIN TIME
+ON CERTAIN TIME BUT IF SCM CHNAGES
+
+
+
+
+
+
+
+
