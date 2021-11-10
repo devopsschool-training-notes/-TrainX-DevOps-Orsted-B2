@@ -156,7 +156,192 @@ What is .tf?
 Lab 1
 Lab 2 
 
+===============================================
+Psucode
+----------------------
+1. Write a code to create a VM in Azure.
+2. Write a code to create a repo at github
+3. Write a codee to create a repo at azure devops
 
+	Terraform file
+	- has specification of HCL
+	Contains
+		Providers
+			Resources
+			- Attributes
+			- Meta
+			- Arguments
+			- Provisionars
+			Resources
+			- Attributes
+			- Meta
+			- Arguments
+			- Provisionars
+			Resources
+			- Attributes
+			- Meta
+			- Arguments
+			- Provisionars
+			Resources
+			- Attributes
+			- Meta
+			- Arguments
+			- Provisionars
+
+			azurerm_virtual_machine
+				Arguments - Vary
+				Meta-Argement This is for every resources
+					depends_on
+					count
+					for_each
+					provider
+					lifecycle
+				Attributes - Vary
+				Provisioners
+
+
+
+
+
+
+What is Resources?
+----------------------------------
+AWS -> API -> Resources
+		create a vm
+		create a net
+		craete a storage
+
+Azure -> API -> 		Resources
+		create a vm	azurerm_virtual_machine
+		create a net
+		craete a storage
+
+Github -> API -> Resources
+		create a repo
+AzureDevOps -> API -> Resources
+		create a repo	
+
+
+
+==============================================================================
+==============================================================================
+variable "prefix" {
+  default = "tfvmex"
+}
+
+resource "azurerm_resource_group" "main" {
+  name     = "${var.prefix}-resources"
+  location = "West Europe"
+}
+
+resource "azurerm_virtual_network" "main" {
+  name                = "${var.prefix}-network"
+  address_space       = ["10.0.0.0/16"]
+  location            = azurerm_resource_group.main.location
+  resource_group_name = azurerm_resource_group.main.name
+}
+
+resource "azurerm_subnet" "internal" {
+  name                 = "internal"
+  resource_group_name  = azurerm_resource_group.main.name
+  virtual_network_name = azurerm_virtual_network.main.name
+  address_prefixes     = ["10.0.2.0/24"]
+}
+
+resource "azurerm_network_interface" "main" {
+  name                = "${var.prefix}-nic"
+  location            = azurerm_resource_group.main.location
+  resource_group_name = azurerm_resource_group.main.name
+
+  ip_configuration {
+    name                          = "testconfiguration1"
+    subnet_id                     = azurerm_subnet.internal.id
+    private_ip_address_allocation = "Dynamic"
+  }
+}
+
+resource "azurerm_virtual_machine" "main" {
+  name                  = "${var.prefix}-vm"
+  location              = azurerm_resource_group.main.location
+  resource_group_name   = azurerm_resource_group.main.name
+  network_interface_ids = [azurerm_network_interface.main.id]
+  vm_size               = "Standard_DS1_v2"
+
+  # Uncomment this line to delete the OS disk automatically when deleting the VM
+  # delete_os_disk_on_termination = true
+
+  # Uncomment this line to delete the data disks automatically when deleting the VM
+  # delete_data_disks_on_termination = true
+
+  storage_image_reference {
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "16.04-LTS"
+    version   = "latest"
+  }
+  storage_os_disk {
+    name              = "myosdisk1"
+    caching           = "ReadWrite"
+    create_option     = "FromImage"
+    managed_disk_type = "Standard_LRS"
+  }
+  os_profile {
+    computer_name  = "hostname"
+    admin_username = "testadmin"
+    admin_password = "Password1234!"
+  }
+  os_profile_linux_config {
+    disable_password_authentication = false
+  }
+  tags = {
+    environment = "staging"
+  }
+}
+
+---------------------------------------------
+resource "github_repository" "example" {
+  name        = "gitrepo-raj1"
+  description = "My awesome codebase"
+
+  visibility = "public"
+
+}
+----------------------------------------
+resource "azuredevops_project" "project" {
+  name               = "gitrepo-raj2"
+  visibility         = "private"
+  version_control    = "Git"
+  work_item_template = "Agile"
+}
+========================================
+Terraform workflow
+- Basic		PLAN - APPLY - DESTROY
+
+- https://www.devopsschool.com/blog/terraform-basics-workflow-loop-explained/
+
+
+- Advance
+- https://www.devopsschool.com/blog/terraform-advance-workflow-loop-explained/
+
+
+
+What is statefile? & Why we need it?
+=============================
+JSON file
+	Contains - Consolidated response from Providers.
+
+Why we need it?
+=========================
+IDEMPOTENT
+----------------------------------------
+
+	DESIRE			Actal		ACTION 
+	C 5			0		C5		10 mins
+	C5			5		0		5 mins
+	---------------------------------------NOTHING	
+	M 2			3		6 mins
+				2		2 M	4 mins
+=======================================================================
 
 
 
