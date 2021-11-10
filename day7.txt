@@ -1,0 +1,171 @@
+Terraform
+============================
+What is terraform?
+---------------------------
+	Code for Infra.
+	Dev in Golang
+	By Hashicorp
+		- vagrant
+		- packer
+		- nomad
+		- consul
+		- terraform
+		- vault
+	Release
+		terraform community	- cmd + free + os
+		terraform ent*		- GUI + PROP*
+	Version
+		1.X
+		
+		
+
+Whats there in Infra?
+----------------------------
+AWS	-> CloudFormation
+Azure	-> ARM
+GC
+Alibaba
+Vmware
+-------
+Jenkins
+Azure DevOps
+bambll
+Github
+Bitbucket
+--------
+Chef
+Puppet
+Ansible
+Cfengine
+--------
+Docker
+Kubernetes
+--------
+Datadog
+ElK
+Splunk
+NewRelic
+Nagios
+Zendesk
+--------
+How to automated tools in Infra?
+------------------------------
+YAML| JSON | CL | Bash | Power | Python
+==========================================
+API = 1 FUNCTION
+---------------------------------------------------
+PROGRAME			| 	USER
+CRUD				   GET PUT POST DELETE
+========================================================
+				PLAN = APPLY = DESTROY
+				----------------------
+				DRY-RUN  | PUT + POST | DESTROY 
+HCF - 
+
+
+
+HUMAN --> HCF --> Terraform   -> Plugins(Providers) ---> API of the tool ----> Statefile
+		APPLY | DESTROY
+=======================================================================================
+
+Step 1. How to install Terraform?
+- Download 
+- Extract
+- Set in PATH
+OR
+set PATH=%PATH%;C:\tools\hashicorp\terraform
+
+#Verify
+$ terraform version
+$ where terraform
+
+Step 2. How to install Providers?
+https://registry.terraform.io/browse/providers
+
+- Azure
+https://registry.terraform.io/providers/hashicorp/azurerm/latest
+
+- Azure DevOps
+https://registry.terraform.io/providers/microsoft/azuredevops/latest
+
+- Github
+https://registry.terraform.io/providers/integrations/github/latest
+	Using .tf
+	Manually
+---------------------
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=2.46.0"
+    }
+	github = {
+      source  = "integrations/github"
+      version = "~> 4.0"
+    }
+  }
+}
+
+# Configure the Microsoft Azure Provider
+provider "azurerm" {
+  features {}
+}
+
+provider "github" {}
+
+--------------------------
+$ terraform init
+
+$ terraform providers
+
+Providers required by configuration:
+.
+├── provider[registry.terraform.io/integrations/github] ~> 4.0
+├── provider[registry.terraform.io/microsoft/azuredevops] >= 0.1.0
+└── provider[registry.terraform.io/hashicorp/azurerm] 2.46.0
+
+
+
+
+Step 3. How to write HCL?
+
+Step 4 - 
+$ terraform plan
+$ terraform apply
+$ terraform destroy
+=================================================
+What is .tf?
+-----------------------------
+	Terraform file
+	- has specification of HCL
+	Contains
+		Providers
+			Resources
+			- Attributes
+			- Meta
+			- Arguments
+			- Provisionars
+	
+	ONE DIR/
+		file1.tf
+		file2.tf
+		file3.tf
+		-------------------
+		CONSIDER = ONE .tf
+============================================
+Lab 1
+Lab 2 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
