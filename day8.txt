@@ -1,0 +1,49 @@
+Provisoners
+=========================
+What is Provisoners?
+
+
+Generic Provisioners
+	file
+	local-exec
+	remote-exec
+
+
+Vendor Provisioners
+	chef
+	habitat
+	puppet
+salt-masterless
+========================
+file Provisoners?
+The file provisioner is used to copy files or directories from the machine executing Terraform to the newly created resource. The file provisioner supports both ssh and winrm type connections.
+
+remote-exec Provisoners?
+The remote-exec provisioner invokes a script on a remote resource after it is created. This can be used to run a configuration management tool, bootstrap into a cluster, etc.  The remote-exec provisioner supports both ssh and winrm type connections.
+
+local-exec Provisoners?
+The local-exec provisioner invokes a local executable after a resource is created. This invokes a process on the machine running Terraform, not on the resource. 
+
+Alternative - 
+- Packer
+- CM tools
+- User Data or Custom Data
+=========================================================
+number - https://www.devopsschool.com/blog/terraform-variable-number-type-explained/
+string - https://www.devopsschool.com/blog/terraform-variable-string-type-explained-2/
+list - https://www.devopsschool.com/blog/terraform-variable-list-type-explained/
+map - https://www.devopsschool.com/blog/terraform-variable-map-type-explained/
+bool - https://www.devopsschool.com/blog/terraform-variable-boolean-type-explained/
+--------------
+
+
+Vars value should declared at
+- tf
+- cmd		bool		-var 'create_vm=true'
+- env		num		default = 3	set TF_VAR_numofusers=3 | set TF_VAR_reponame=ramukaka	
+- .tfvars	string		default = "day3-broad"
+	
+
+https://www.devopsschool.com/blog/terraform-environment-variables-exaplained/
+https://www.devopsschool.com/blog/terraform-variable-using-tf_var-environment-variables-example/
+https://www.devopsschool.com/blog/example-of-terraform-terraform-tfvars/
